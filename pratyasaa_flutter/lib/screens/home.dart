@@ -93,11 +93,50 @@ class _HomePageState extends State<HomePage> {
     return ModalRoute.of(context)?.settings.name == '/';
   }
 
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Scaffold(
+  //     body: GestureDetector(
+  //       onTap: _handleTap,
+  //       child: Container(
+  //         decoration: BoxDecoration(
+  //           image: DecorationImage(
+  //             image: AssetImage('assets/new.png'),
+  //             fit: BoxFit.cover,
+  //           ),
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: GestureDetector(
-        onTap: _handleTap,
+        onTap: () {
+          print("Opening OCR");
+          _speak("Opening OCR");
+
+          // Uncomment the following to navigate to OCRScreen
+          // Navigator.push(
+          //     context, MaterialPageRoute(builder: (context) => OCRScreen()));
+        },
+        onDoubleTap: () {
+          print("Opening Currency detection");
+          _speak("Opening Currency detection");
+
+          // Uncomment the following to navigate to ApiCallScreen
+          // Navigator.push(context,
+          //     MaterialPageRoute(builder: (context) => ApiCallScreen()));
+        },
+        onLongPress: () {
+          print("Opening environment captioning");
+          _speak("Opening environment captioning");
+
+          // Uncomment the following to navigate to CaptionCallScreen
+          // Navigator.push(context,
+          //     MaterialPageRoute(builder: (context) => CaptionCallScreen()));
+        },
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
@@ -109,6 +148,7 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
 
   @override
   void dispose() {
